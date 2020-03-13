@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Mi primera web</title>
+</head>
+<body>
+	<h1>Tútulo de mi web</h1>
+	<h2>Bienvenido a mi web</h2>
+	
+	<p>	
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the <br>undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+	</p>
+	<hr>
+	
+	<h2>Imágenes en HTML</h2>
+		<img alt="imágen de un perro" title="foto de perro" src="images/imagen_uno.jpg" width="255">
+	<hr>
+
+	<h3>Este es el segundo párrafo</h3>
+	<p>	
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, <strong> making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,</strong> from a Lorem Ipsum passage, and going through the cites of the word in classical literature,<hr> discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, <span id="resaltado" class="rojo"> written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</span> The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+	</p>
+
+	<h3>Formulario</h3>
+	<form>
+		<p>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre"
+			placeholder="Escribe tu nombre" />
+		</p>
+		<p>
+			<label>Descripción</label>
+			<textarea name="descripcion"></textarea>
+		</p>
+
+			<input type="radio" name="genero" value="hombre">Hombre<br>
+			<input type="radio" name="genero" value="mujer">Mujer<br>
+			<input type="radio" name="genero" value="nada">Nada<br><br>
+	<select name="genero2">
+		<option value="hombre">Hombre</option>
+		<option value="mujer">Mujer</option>
+		<option value="nada">Nada</option>		
+	</select>
+	<input type="submit" name="" value="enviar Formulario"/>
+
+	</form>
+	<br>
+	<h3>Listado de frutas</h3>
+	<ol><!-- lista ordenada -->
+		<li>Manzana</li>
+		<li>Naranja</li>
+		<li>Platano</li>
+	</ol>
+
+	<ul>
+		<li>Manzana</li><!-- lista desordenada -->
+		<li>Naranja</li>
+		<li>Platano</li>
+	</ul>
+	
+	<h3>Lista con sublistas</h3>
+	<ul>
+		<li>Manzana</li>
+		<li>Naranja</li>
+		<li>Platano
+			<ul>
+				<li>oriental</li>
+				<li>occidental</li>
+				<li>asiatico</li>
+			</ul>
+		</li>
+		<li>melon</li>
+		<li>sandia</li>
+	</ul>
+
+	<h3>Tablas</h3>
+	<table border="1">
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>País</th>
+		</tr>
+		<tr>
+			<td>Victor</td>
+			<td colspan="2">Gonzalez</td>
+		
+		</tr>
+		<tr>
+			<td>Angela</td>
+			<td>Ramirez</td>
+			<td>Chile</td>
+		</tr>
+	</table>
+</body>
+</html>
