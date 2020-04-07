@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servidor Web Facultatd Tecnologica USACH</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <script src = "/socket.io/socket.io.js" ></script>
+
+    <script>
+        var socket = io.connect();
+        socket.on('combustibleUpdate', function (data) {
+            // calculate the level according to our voltage
+            var readingz = JSON.parse(data);
+            var levelCm = readingz.combustible ;
+            // Displaying level in cm in the web page
+            document.getElementById("level").innerHTML = " " +
+            levelCm
+            + " &nbsp;% &nbsp;" ;
+        });
+
+        socket.on('temperaturaUpdate', function (data) {
+            var readingx = JSON.parse(data);
+            // calculate the temperature according to our voltage
+            var temperaturaC = readingx.temperatura ;
+            // Displaying temperature in C and F in the web page
+            document.getElementById("temperatura").innerHTML = " " +
+            Math.round(temperaturaC)
+            + "&deg;C &nbsp;&nbsp;&nbsp;" ;
+
+        });
+
+        socket.on('ventiladorUpdate', function (data) {
+            // store new data on reading variable
+            var readingy = JSON.parse(data);
+            var ventiladorS = readingy.ventilador;
+            // Displaying estado del ventilador web page
+            document.getElementById("ventilador").innerHTML = " " +ventiladorS;
+        });
+
+        socket.on('alarmaHumoUpdate', function (data) {
+            // store new data on reading variable
+            var readingu = JSON.parse(data);
+            var alarmaHumoS = readingu.alarmaHumo;
+            // Displaying estado de alama de humo en web page
+            document.getElementById("alarmaHumo").innerHTML = " " +alarmaHumoS;
+        });
+
+        socket.on('ingresoUpdate', function (data) {
+            // store new data on reading variable
+            var readingv = JSON.parse(data);
+            var ingresoS = readingv.ingreso;
+            // Displaying estado de ingreso en web page
+            document.getElementById("ingreso").innerHTML = " " +ingresoS;
+        });
+
+        socket.on('vdcBancoUpdate', function (data) {
+            // store new data on reading variable
+            var readingw = JSON.parse(data);
+            var vdcBancoS = readingw.vdcBanco;
+            // Displaying estado de 48 vdc bateria en web page
+            document.getElementById("vdcBanco").innerHTML = " " +vdcBancoS;
+        });
+
+        socket.on('vacElectricaUpdate', function (data) {
+            // store new data on reading variable
+            var readingj = JSON.parse(data);
+            var vacElectricaS = readingj.vacElectrica;
+            // Displaying estado de vac Electrica en web page
+            document.getElementById("vacElectrica").innerHTML = " " +vacElectricaS;
+        });
+
+        socket.on('contactorElectricaUpdate', function (data) {
+            // store new data on reading variable
+            var readingk = JSON.parse(data);
+            var contactorElectricaS = readingk.contactorElectrica;
+            // Displaying estado del contactor Electrica en web page
+            document.getElementById("contactorElectrica").innerHTML = " " +contactorElectricaS;
+        });
+
+        socket.on('contactorGrupoUpdate', function (data) {
+            // store new data on reading variable
+            var readingl = JSON.parse(data);
+            var contactorGrupoS = readingl.contactorGrupo;
+            // Displaying estado del contactor grupo en web page
+            document.getElementById("contactorGrupo").innerHTML = " " +contactorGrupoS;
+        });
+
+        socket.on('vacGrupoUpdate', function (data) {
+            // store new data on reading variable
+            var readingm = JSON.parse(data);
+            var vacGrupoS = readingm.vacGrupo;
+            // Displaying estado del ventilador web page
+            document.getElementById("vacGrupo").innerHTML = " " +vacGrupoS;
+        });
+    </script>    
+    
+</head>
+<body>
+    <div id="wrapper">
+        <div id="logo"><h1>Web Server USACH</h1>
+             <p>Facultad Tecnologica</p>
+        </div>
+        <div id="container" align="center">
+            <div class="xgen">
+                 <h2>COMBUSTIBLE : </h2>
+                 <h3 id="level"></h3>
+            </div>
+            <BR>
+            
+            <div class="xgen">
+                 <h2>TEMPERATURA : </h2>
+                 <h3 id="temperatura"></h3>
+            </div>  
+            <BR>
+            <div class="xgen">
+                 <h2>VENTILADOR : </h2>
+                 <h3 id="ventilador"></h3>
+            </div>
+            <BR> 
+            <div class="xgen">
+                 <h2>ALARMA de HUMO : </h2>
+                 <h3 id="alarmaHumo"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>INGRESO : </h2>
+                 <h3 id="ingreso"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>48VDC BATERIA : </h2>
+                 <h3 id="vdcBanco"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>VAC ELECTRICA : </h2>
+                 <h3 id="vacElectrica"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>CONTACTOR ELECTRICA : </h2>
+                 <h3 id="contactorElectrica"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>CONTACTOR GRUPO : </h2>
+                 <h3 id="contactorGrupo"></h3>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h2>VAC GRUPO : </h2>
+                 <h3 id="vacGrupo"></h3>
+            </div>
+            <BR>
+            <a href="index2.html">modo comando</a>
+           
+            <div id="footer"><img src="logo_usach.png" width="51" height="78"></div>
+    </div>
+</body>
+</html>

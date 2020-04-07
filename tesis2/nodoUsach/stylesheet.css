@@ -1,0 +1,106 @@
+body {
+    background: #E6E6E6;
+    font-family: Verdana, Geneva, sans-serif;
+ }
+
+h1:{
+    margin: 0;
+    color: navy;
+    font-weight: bold;
+}
+h3 {
+    margin: 0;
+    color: navy;
+    font-weight: bold;
+}
+h4 {
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+h2,h3 {
+    display : inline;
+    text-align: center;
+}
+h3,h4 {
+    display : inline;
+    text-align: center;
+}
+
+a {
+    color: navy;
+    text-decoration: none;
+}
+a:hover, a:active { text-decoration: underline; }
+
+#wrapper { margin: 20px 70px; }
+
+#logo {
+    /*display: inline-block;*/
+    text-align: center;
+    font-family: arial, sans-serif;
+    color: navy;
+}
+.xgen {
+    border:1px ;
+    margin:1;
+    text-align:center;
+    font-family: arial, sans-serif;
+}
+#buttons {
+
+}
+#buttons ul {
+    list-style: none;
+    margin: 0 auto;
+}
+
+#buttons li {
+    margin: 0;
+    background: navy;
+    height: 45px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    width: 240px;
+    border-radius: 10px;
+}
+
+#buttons ul li a {
+    display: inline-block;
+    height: 35px;
+    padding: 5px 20px;
+    color: white;
+}
+
+#container {
+    padding: 40px;
+    clear: both;
+    background: white;
+    border-radius: 10px;
+}
+
+#variables {
+    float:left;
+    padding: 20px;
+    width:520px;
+    background: white;
+    border-radius: 10px;
+}
+#varcom {
+    float:left;
+    padding: 20px;
+    width:320px;
+    background: white;
+    border-radius: 10px;
+}
+#opcion {
+    text-align: center;
+    clear: both;
+}
+
+#footer {
+    text-align: center;
+    clear: both;
+}

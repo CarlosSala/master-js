@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Automation Web server with BeagleBone</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <script src = "/socket.io/socket.io.js" ></script>
+    <script>
+        var socket = io.connect();
+        socket.on('sensorsUpdate', function (data) {
+            // store new data on reading variable
+            var reading = JSON.parse(data);
+            // calculate the temperature according to our voltage
+            var voltage = reading.temperature ;
+            var temperatureC = voltage;
+            var temperatureF = (temperatureC * 9/5) + 32;
+            // Displaying temperature in C and F in the web page
+            document.getElementById("temperature").innerHTML = " " +
+            Math.round(temperatureC)
+            + "&deg;C &nbsp;&nbsp;&nbsp;" + Math.round(temperatureF) +
+            "&deg;F";
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="logo"><h1>Home Automation Web server</h1></div>
+        <div id="container" align="center">
+            <h2>Temperature</h2>
+            <h3 id="temperature"></h3>
+        </div>
+        <div id="footer"><p>Powered by BeagleBone</p></div>
+    </div>
+</body>
+</html>

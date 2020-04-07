@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+.bloque {
+display:block;
+width:100px;
+height:100px;
+background-color:lightgrey;
+}
+</style>
+<script type="text/javascript">
+
+var arrcolor = ['green', 'yellow', 'red'];
+var counter = 0;
+function semaforo() {
+document.getElementById('b'+counter % arrcolor.length).style.backgroundColor = arrcolor[counter % arrcolor.length];
+
+if (counter % arrcolor.length != 0 || (counter-1) % arrcolor.length == 2) {
+document.getElementById('b'+(counter-1) % arrcolor.length).style.backgroundColor = 'grey';
+}
+
+counter++;
+}
+
+</script>
+</head>
+<body>
+
+<div class="bloque" id="b0"></div>
+<div class="bloque" id="b1"></div>
+<div class="bloque" id="b2"></div>
+
+
+<button onclick="semaforo()">cambiar semaforo</button>
+
+
+</body>
+</html>

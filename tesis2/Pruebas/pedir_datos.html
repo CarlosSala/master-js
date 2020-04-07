@@ -1,0 +1,18 @@
+<script>
+var registros = [];
+
+        function procesar() {
+            var formulario = document.forms["usuarioForms"];
+            var registro = {
+                "grados": formulario.elements[0].value
+            };
+            registros.push(registro);
+            var g = registros[0]["grados"];
+            var pa = Math.round((g * 400) / 360);
+            // if (pa == null || pa.length == 0 || /^\s+$/.test(pa)) {
+            //   alert('[ERROR] El campo debe tener un valor');
+            //    } else {
+            socket.emit('posicionAzimut', pa);
+            //    }
+        }
+</script>

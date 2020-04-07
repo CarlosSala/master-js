@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servidor Web USACH</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <script src = "/socket.io/socket.io.js" ></script>
+    
+    <script>
+        var socket = io.connect();
+        
+        function changeState(state){
+        socket.emit('changeState', '{"state":"'+state+'"}');
+        }
+
+        socket.on('combustibleUpdate', function (data) {
+            // calculate the level according to our voltage
+            var readingz = JSON.parse(data);
+            var levelCm = readingz.combustible ;
+            // Displaying level in cm in the web page
+            document.getElementById("level").innerHTML = " " +
+            levelCm
+            + " &nbsp; % &nbsp;" ;
+        });
+
+        socket.on('temperaturaUpdate', function (data) {
+            var readingx = JSON.parse(data);
+            // calculate the temperature according to our voltage
+            var temperaturaC = readingx.temperatura ;
+            // Displaying temperature in C and F in the web page
+            document.getElementById("temperatura").innerHTML = " " +
+            Math.round(temperaturaC)
+            + "&deg;C &nbsp;&nbsp;&nbsp;" ;
+
+        });
+
+        socket.on('alarmaHumoUpdate', function (data) {
+            // store new data on reading variable
+            var readingu = JSON.parse(data);
+            var alarmaHumoS = readingu.alarmaHumo;
+            // Displaying estado de alama de humo en web page
+            document.getElementById("alarmaHumo").innerHTML = " " +alarmaHumoS;
+        });
+ 
+        socket.on('ingresoUpdate', function (data) {
+            // store new data on reading variable
+            var readingv = JSON.parse(data);
+            var ingresoS = readingv.ingreso;
+            // Displaying estado de ingreso en web page
+            document.getElementById("ingreso").innerHTML = " " +ingresoS;
+        });
+
+        socket.on('vdcBancoUpdate', function (data) {
+            // store new data on reading variable
+            var readingw = JSON.parse(data);
+            var vdcBancoS = readingw.vdcBanco;
+            // Displaying estado de 48 vdc banco en web page
+            document.getElementById("vdcBanco").innerHTML = " " +vdcBancoS;
+        });
+
+        socket.on('vdcGrupoUpdate', function (data) {
+            // store new data on reading variable
+            var readingn = JSON.parse(data);
+            var vdcGrupoS = readingn.vdcGrupo;
+            // Displaying estado de 12 vdc Grupo en web page
+            document.getElementById("vdcGrupo").innerHTML = " " +vdcGrupoS  + " &nbsp;Volts &nbsp;";
+        });
+
+        socket.on('vacElectricaUpdate', function (data) {
+            // store new data on reading variable
+            var readingj = JSON.parse(data);
+            var vacElectricaS = readingj.vacElectrica;
+            // Displaying estado de vac Electrica en web page
+            document.getElementById("vacElectrica").innerHTML = " " +vacElectricaS;
+        });
+
+        socket.on('contactorElectricaUpdate', function (data) {
+            // store new data on reading variable
+            var readingk = JSON.parse(data);
+            var contactorElectricaS = readingk.contactorElectrica;
+            // Displaying estado del contactor Electrica en web page
+            document.getElementById("contactorElectrica").innerHTML = " " +contactorElectricaS;
+        });
+
+        socket.on('contactorGrupoUpdate', function (data) {
+            // store new data on reading variable
+            var readingl = JSON.parse(data);
+            var contactorGrupoS = readingl.contactorGrupo;
+            // Displaying estado del contactor grupo en web page
+            document.getElementById("contactorGrupo").innerHTML = " " +contactorGrupoS;
+        });
+
+        socket.on('vacGrupoUpdate', function (data) {
+            // store new data on reading variable
+            var readingm = JSON.parse(data);
+            var vacGrupoS = readingm.vacGrupo;
+            // Displaying estado del ventilador web page
+            document.getElementById("vacGrupo").innerHTML = " " +vacGrupoS;
+        });
+    </script>  
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="logo"><h1>ESTADOS SISTEMAS DE ENERGIA</h1>
+             <p>NODO USACH </p>
+        </div>
+        <div id="container" align="center">
+          <div id="variables" align="center">
+              
+            <div class="xgen">
+                 <h3>VAC ELECTRICA : </h3>
+                 <h4 id="vacElectrica"></h4>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h3>CONTACTOR ELECTRICA : </h3>
+                 <h4 id="contactorElectrica"></h4>
+            </div>
+            <BR>
+             <div class="xgen">
+            <h3>VAC GRUPO : </h3>
+                 <h4 id="vacGrupo"></h4>
+            </div>
+            <BR>                  
+            <div class="xgen">
+                 <h3>CONTACTOR GRUPO : </h3>
+                 <h4 id="contactorGrupo"></h4>
+            </div>
+            <BR> 
+            <div class="xgen">
+                 <h3>COMBUSTIBLE 170 lts : </h3>
+                 <h4 id="level"></h4>
+            </div>
+            <BR>
+            
+            <div class="xgen">
+                 <h3>TEMPERATURA : </h3>
+                 <h4 id="temperatura"></h4>
+            </div>  
+            <BR>
+              
+          </div>            
+
+            <div id="varcom" align="center">  
+            
+            <div class="xgen">
+                 <h3>ALARMA de HUMO : </h3>
+                 <h4 id="alarmaHumo"></h4>
+            </div>
+            <BR>            
+            <div class="xgen">
+                 <h3>INGRESO : </h3>
+                 <h4 id="ingreso"></h4>
+            </div>
+            <BR>                            
+            <div class="xgen">
+                 <h3>48VDC BANCO : </h3>
+                 <h4 id="vdcBanco"></h4>
+            </div>
+            <BR>    
+            <div class="xgen">
+                 <h3>12VDC GRUPO : </h3>
+                 <h4 id="vdcGrupo"></h4>
+            </div>
+            <BR>              
+            
+            <div id="buttons"><ul>
+            <li><a onclick="changeState(0);">LIBERAR DCA</a></li>
+            <BR>
+            </ul></div>
+        
+            </div>         
+
+           <div id="opcion"> 
+           </div>
+           <div id="footer"><img src="logo_usach.png" width="51" height="78"></div>        
+
+        </div>            
+    </div>            
+
+</body>
+
+</html>

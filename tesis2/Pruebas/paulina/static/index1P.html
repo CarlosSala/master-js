@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servidor Web Supervisor Humedad y Temperatura</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/pagina2P.css" type="text/css" />
+    <script src = "/socket.io/socket.io.js" ></script>
+
+    <script>
+        var socket = io.connect();
+        socket.on('setpoint', sp);
+        socket.on('temperaturaAmbiente', grados);
+        socket.on('nivelEstanque', nivel);
+        socket.on('nivelBateriaXbee', bateria);
+        socket.on('estadoVentilador', ventilador);
+        socket.on('modoManual', manual);
+        
+        var z = 0;
+        var z1 = 0;
+        
+        
+        function sp(data) {
+        
+        var esa = new String(data);
+        var e1;
+        var e2;
+        
+        if (z == 0 && z1 == 0) {
+         e1 = esa.substr(0,2);
+         e2 = esa.substr(2,4);
+        }
+        else if (z == 1 && z1 == 1){
+         e1 = esa.substr(0,1);
+         e2 = esa.substr(1,2);
+        }
+        else if (z == 0 && z1 == 1){
+         e1 = esa.substr(0,2);
+         e2 = esa.substr(2,3);
+        }
+        else if (z == 1 && z1 == 0){
+         e1 = esa.substr(0,1);
+         e2 = esa.substr(1,3);
+        }
+            document.getElementById("sp").innerHTML = "Set Point max: " + e1 + "°" ;
+            document.getElementById("sp1").innerHTML = "Set Point min: " + e2 + "°" ;
+        }
+        
+        function procesar() {
+            var formulario = document.forms["usuarioForms"];
+            var registro = {
+                "tiempo": formulario.elements[0].value,
+            };
+            var t = Math.round(registro.tiempo);
+             if (t.length - 1 == 0)  z = 1;
+             else z = 0;
+            
+            if (t == null || t.length == 0 || /^\s+$/.test(t)) {
+               
+            } else {
+                socket.emit('ajusteSetpoint', t);
+            }
+        }
+/*__________________________________________________________*/
+        
+        function procesar1() {
+            var formulario = document.forms["usuarioForms1"];
+            var registro1 = {
+                "tiempo":formulario.elements[0].value
+            };
+            var t1 = Math.round(registro1.tiempo);
+            if (t1.length - 1 == 0)  z1 = 1;
+            else z1 = 0;
+                
+           if (t1 == null || t1.length == 0 || /^\s+$/.test(t1)) {
+                
+            } else {
+                socket.emit('ajusteSetpoint1', t1);
+            }
+        }
+        
+        function grados(data) {
+            var a = JSON.parse(data);
+            document.getElementById("grados").innerHTML = "Temperatura actual: " + a + "°";
+        }
+
+        function nivel(data) {
+            var b = JSON.parse(data);
+            document.getElementById("nivel").innerHTML = "Nivel estanque: " + b + "%";
+        }
+        
+        function bateria(data) {
+            var c = JSON.parse(data);
+            document.getElementById("bateria").innerHTML = "Bateria sensor: " + c + " volts";
+        }
+
+        function ventilador(data) {
+            var d1 = JSON.parse(data);
+            if (d1 == 1) {
+                document.getElementById("ventilador").innerHTML = "Estado ventilador: Encendido";
+            } 
+            else {
+                document.getElementById("ventilador").innerHTML = "Estado ventilador: Detenido";
+            }
+        }
+        
+        function manual(data) {
+            var d = JSON.parse(data);
+        if (d == 0) {
+            document.getElementById("manual").innerHTML = "Modo: Apagado M";
+        }
+        else if (d == 1) {
+            document.getElementById("manual").innerHTML = "Modo: Encendido M";
+        }
+        else if (d == 2) {
+            document.getElementById("manual").innerHTML = "Modo: Automatico";
+        }
+        console.log("estado: " + d );
+        //socket.emit('modoManual', data);
+                    }
+        
+     /*   function automatico(estado) {
+            socket.emit('modoAutomatico', estado);
+        } */
+
+    </script>   
+    
+</head>
+<body>
+    <img id="logo" src="images/logo.png">
+    <div id="titulo"><h1 align="center">Supervisando Sensor Temperatura</h1> 
+        <p>Nodo 2</p>
+    </div>
+
+    <h2 align="center" id="sp"> SP</h2> 
+    <h2 align="center" id="sp1"> SP1</h2>
+    <h2 align="center" id="grados"> GRADOS</h2>
+    <h2 align="center" id="nivel"> NIVEL</h2>
+    <h2 align="center" id="bateria"> BATERIA</h2>
+    <h2 align="center" id="ventilador"> VENTILADOR</h2>
+    
+    <BR>
+    <div class="container" align="center">
+        <p id="manual">Modo: </p>
+        <div>
+            <ul>
+                <li><a onclick="manual(2)">Automatico</a></li>
+                <li><a onclick="manual(1)">Encendido</a></li>
+                <li><a onclick="manual(0)">Apagado</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="index1P.html">Inicio</a></li>
+            <li><a href="pagina2P.html">Humedad</a></li>
+        </ul>
+    </nav>
+
+<div class="sp" align="center">
+    <h3>Ingrese SP max</h3>
+    <form action="javascript:void(0)" name="usuarioForms" onsubmit="procesar()">
+        <input type="number" style="width:240px; height:15px" min="0" max="40" placeholder="Ingrese un valor igual o mayor a 0 &#176;" autofocus>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<div class="sp1" align="center">
+    <h3>Ingrese SP min</h3>
+    <form action="javascript:void(0)" name="usuarioForms1" onsubmit="procesar1()">
+        <input type="number" style="width:240px; height:15px" min="0" max="40" placeholder="Ingrese un valor igual o menor a 40 &#176;" autofocus>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>

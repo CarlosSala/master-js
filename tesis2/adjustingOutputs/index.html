@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Automation Web server with BeagleBone</title>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <script src = "/socket.io/socket.io.js" ></script>
+    <script>
+        // Establishing connection with server
+        var socket = io.connect();
+        // Changes the servo position
+        function changePosition(value){
+            // Emit message changing the servo position to a value from 0 to 1
+            socket.emit("changePosition", '{"position":"' + value +'"}');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="logo"><h1>Home Automation Web server</h1></div>
+        <div id="container" align="center">
+            <h2>Servo Position</h2>
+            <input type="range" min="0" max="1" step="0.1" onchange="changePosition(this.value)">
+        </div>
+        <div id="footer"><p>Powered by BeagleBone</p></div>
+    </div>
+</body>
+</html>
