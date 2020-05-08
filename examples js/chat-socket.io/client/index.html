@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chat con express y socket.io</title>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="main.js"></script>
+
+        <style>
+
+        #messages {
+            width:95%;
+            max-width: 400px;
+            height: 350px;
+            overflow-y: scroll;
+            border: 1px solid #eee;
+            box-shadow: 0px 0px 20px #ccc inset;
+        }
+
+        .message {
+            margin: 20px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: lightblue;
+        } 
+
+        </style>
+    </head>
+    <body>
+        <h1>Chat con express y socket.io</h1>
+        <!-- se recibe la infor del servidor -->
+        <div id="messages"></div>
+        <!-- se envia info al servidor -->
+        <form name="myform" onsubmit="return addMessage(this);">
+            <input id="nickname" type="text" placeholder="Nombre o nick">
+            <textarea id="textarea" placeholder="Mensajes..."></textarea>
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
