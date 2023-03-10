@@ -3,88 +3,90 @@
 // el simbolo dolar y la palabra jQuery son lo mismo
 // despues del dolar viene un selector
 
-$(document).ready(function(){
-     
-// Selector para los id utilizando #
-// modifican propidades css de los elementos seleccionados
-var rojo = $("#rojo").css("background", "red")
-                     .css ("color", "white");
-//  console.log(rojo);
+$(document).ready(function () {
 
-$("#amarillo").css("background", "yellow")
-              .css ("color", "purple");
+    // Selector para los id utilizando #
 
-              
-$("#verde").css("background", "green")
-              .css ("color", "orange");
+    // se pueden modificar propidades css de los elementos seleccionados
 
-// Selector para las clases
-var mi_clase = $(".zebra");
+    var rojo = $("#rojo").css("background", "red").css("color", "white");
+    // console.log(rojo);
 
-mi_clase.css("padding","5px");
-// se muestra en consola uno de los dos elemntos
-// que poseen el arreglo de la clase .zebra
- console.log(mi_clase[0]);
-// el metodo .eq() realiza la misma accion anterior
-// console.log(mi_clase.eq(0));
+    $("#amarillo").css("background", "yellow").css("color", "black");
 
-// los elementos div de la clase .sin-borde, se les añade
-// mediante el evento click la clase .zebra 
-$(".sin-borde").click(function(){
-  //  console.log("evento click capturado");
-  // la palabra this hace referencia al elemento al cual
-  // se le esta aplicando el evento click
-  $(this).addClass("zebra");
-});
+    $("#verde").css("background", "green").css("color", "orange");
+
+    // Selector para las clases
+
+    var mi_clase = $(".zebra");
+
+    mi_clase.css("padding", "10px");
+
+    // se muestra en consola uno de los dos elementos que poseen la clase .zebra
+    console.log(mi_clase[0]);
+
+    // el metodo .eq() realiza la misma accion anterior, pero devuelve un objeto
+    // console.log(mi_clase.eq(0));
+
+    // a los elementos <p> con clase .sin-borde, se les añade mediante el evento click la clase .zebra 
+    $(".sin-borde").click(function () {
+
+        // la palabra this hace referencia al elemento al cual se le esta aplicando el evento click
+        $(this).addClass("zebra");
+    });
 
 
-// Selectores por etiqueta
-// se selecciona el elemento parrafo
-// cursor pointer transforma el cursor de flecha a dedo
-var parrafos =$("p").css("cursor", "pointer");
+    // Selectores por etiqueta
+    // cursor pointer transforma el cursor de flecha a dedo
+    var parrafos = $("p").css("cursor", "pointer");
 
-parrafos.click(function(){
-    var that = $(this);
-    // .hasClass para verificar si existe la clase
-    if(!that.hasClass("grande")){
-        // cambia la clase
-        that.addClass("grande");
-    } else {
-        // elimina la clase
-        that.removeClass("grande");
-    }
-});
+    parrafos.click(function () {
 
+        var that = $(this);
 
-// Selector de atributos de elementos html
+        // .hasClass para verificar si existe la clase
+        if (!that.hasClass("fontSizeGrande")) {
 
-$('[title="Google"]').css('background', "orange");
+            // cambia la clase
+            that.addClass("fontSizeGrande");
 
-$('[title="Facebook"]').css('background', "blue");
+        } else {
+
+            // elimina la clase
+            that.removeClass("fontSizeGrande");
+        }
+    });
 
 
-// otros aspectos de los selectores
+    // Selector de atributos de elementos html
 
-// para agregar una clase a mas de un elemento html
-// $('p, a').addClass('margen-superior');
+    $('[title="Google"]').css('background', "orange");
 
-// metodo .find() para encontrar elementos en un arbol html grande 
-// en el cual no se tiene claridad de las ubicaciones de estos 
-var busqueda = $("#caja").find('.resaltado');
-// es lo mismoa que el metodo anterior
-var busqueda1 = $("#caja .resaltado");
-console.log(busqueda);
-console.log(busqueda1);
+    $('[title="Facebook"]').css('background', "lightblue");
 
-// el metodo .parent() sirve para moverse entre etiquetas 
-// del dom de forma jerarquica, se selecciona el elemento caja
-//  con dos parents y con tres se retrocede hasta el body
-var busqueda4 = $("#caja .resaltado").eq(0).parent().parent().parent().find('[title="Google"]');
-console.log(busqueda4);
 
-// otro ejemplo, se sale del li y luego del ul para llegar al 
-// elemento del div y dentro de el encontrar el o los elemetos con
-// la clase .resaltado
-var busqueda5 = $("#elemento4").parent().parent().find('.resaltado');
-console.log(busqueda5);
+    // otros aspectos de los selectores
+
+    // para agregar una clase a mas de un elemento html
+    $('p, a').addClass('margen-superior');
+
+    // metodo .find() para encontrar elementos en un arbol html grande 
+    // en el cual no se tiene claridad de las ubicaciones de estos 
+    var busqueda = $("#caja").find('.resaltado');
+    console.log(busqueda);
+
+    // es lo mismo que el metodo anterior (si se busca con id y clase para hacer la busqueda mas especifica)
+    var busqueda1 = $("#caja .resaltado");
+    console.log(busqueda1);
+
+    // el metodo .parent() sirve para moverse entre etiquetas del dom de forma jerarquica
+    // se selecciona el elemento caja con dos parents y con tres se retrocede hasta el body
+    var busqueda2 = $("#caja .resaltado").parent().parent().parent().find('[title="Google"]');
+    console.log(busqueda2);
+
+    // otro ejemplo, desde el elemento con el id="elemento3" se comienza a retroceder 
+    // saliendo del li y luego del ul hasta llegar al elemento del div
+    // se mostraran todos los elementos encontrados en el camino que contengan la clase .resaltado
+    var busqueda3 = $("#elemento3").parent().parent().find('.resaltado');
+    console.log(busqueda3);
 });

@@ -8,7 +8,8 @@ window.addEventListener("load", () => {
 
     function intervalo() {
 
-        tiempo = setInterval(function() {
+        tiempo = setInterval(function () {
+
             console.log("setInterval ejecutando");
 
             var encabezado = document.querySelector("h1");
@@ -17,24 +18,28 @@ window.addEventListener("load", () => {
             else
                 encabezado.style.fontSize = "40px";
 
-        }, 1000);
+        }, 2000);
 
         return tiempo;
     }
 
     // para dar inicio al setInterval
-     tiempo = intervalo();
+    tiempo = intervalo();
 
     // para detener el setInterval
     var stop = document.querySelector("#stop");
-    stop.addEventListener("click", function() {
+
+    stop.addEventListener("click", function () {
+
         console.log("Detuviste el setInterval");
         clearInterval(tiempo);
     });
 
     // para reanudar el setInterval
     var start = document.querySelector("#start");
-    start.addEventListener("click", function() {
+
+    start.addEventListener("click", function () {
+
         console.log("Iniciaste el setInterval");
         intervalo();
     });

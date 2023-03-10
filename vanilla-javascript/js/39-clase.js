@@ -13,13 +13,12 @@ class Coche {
     }
 
     AumentarVelocidad() {
-        this.velocidad+=1;
+        this.velocidad += 1;
     }
 
     DisminuirVelocidad() {
-        this.velocidad-=1;
+        this.velocidad -= 1;
     }
-
 }
 
 var velocidadInicio = document.getElementById("velocidadCocheInicio");
@@ -40,22 +39,22 @@ velocidadTermino.innerHTML = " la velocidad de termino del coche 1 es: " + objCo
 
 console.log(objCoche1);
 
+// herencia
 class Autobus extends Coche {
 
-    constructor(modelo, velocidad, color){
-        super(modelo,velocidad,color);
+    constructor(modelo, velocidad, color) {
+        // se usa la palabra super para llamar al constructor de la clase padre
+        super(modelo, velocidad, color);
         this.altura = 5;
-
     }
 
-    mostrarAltura(){
+    mostrarAltura() {
         return "La altura del bus es: " + this.altura;
     }
 
-    
 }
 
-var objAutobus1 = new Autobus("bmw",200,"yellow");
+var objAutobus1 = new Autobus("bmw", 200, "yellow");
 
 console.log(objAutobus1);
 console.log(objAutobus1.mostrarAltura());

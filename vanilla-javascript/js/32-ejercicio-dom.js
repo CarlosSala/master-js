@@ -1,6 +1,7 @@
 'use strict'
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
+
     console.log("DOM cargado");
 
     // se selecciona un formulario
@@ -11,7 +12,8 @@ window.addEventListener("load", function() {
     box_dashed.style.display = "none";
 
 
-    formulario.addEventListener("submit", function() {
+    formulario.addEventListener("submit", function () {
+
         console.log("evento submit capturado");
 
         var nombre = document.querySelector("#nombre").value;
@@ -19,27 +21,37 @@ window.addEventListener("load", function() {
         var edad = document.querySelector("#edad").value;
 
         if (nombre.trim() == null || nombre.trim().length == 0) {
+
             alert("El nombre no es válido");
-            document.querySelector("#error_nombre").innerHTML = " el nombre no es válido";
+            document.querySelector("#error_nombre").innerHTML = " El nombre no es válido";
+
             return false;
+
         } else {
+
             document.querySelector("#error_nombre").style.display = "none";
         }
 
         if (apellidos.trim() == null || apellidos.trim().length == 0) {
+
             alert("El apellido no es válido");
+
             return false;
         }
 
         if (edad == null || edad <= 0 || isNaN(edad)) {
+
             alert("La edad no es válida");
+
             return false;
         }
+
         // se muestra en pantalla el div contenedor de los datos de usuario
         box_dashed.style.display = "block";
 
         // formas de mostrar los datos de usuario en el body
-        // forma 1 de agregar los datos de usuario al body
+        
+        // forma uno de agregar los datos de usuario al body
 
         // captura los span donde se incrustarán los datos del usuario
         var p_nombre = document.querySelector("#p_nombre span");
@@ -51,26 +63,27 @@ window.addEventListener("load", function() {
         p_apellidos.innerHTML = apellidos;
         p_edad.innerHTML = edad;
 
-        /*
+
         // formas opcionales de agregar los datos de usuario al body
-        var datos_usuario = [nombre, apellidos, edad];
 
-        var indice; 
-        for (indice in datos_usuario){
-            var parrafo = document.createElement("p");
-            parrafo.append(datos_usuario[indice]);
-            box_dashed.append(parrafo);
-        }
-        */
+        // var datos_usuario = [nombre, apellidos, edad];
 
-        /* 
+        // var indice;
+
+        // for (indice in datos_usuario) {
+
+        //     var parrafo = document.createElement("p");
+        //     parrafo.append(datos_usuario[indice]);
+        //     box_dashed.append(parrafo);
+        // }
+
         // otra de agregar los datos de usuario al body
-        var parrafo = document.createElement("p");
-        parrafo.append(nombre);
-        parrafo.append(apellidos);
-        parrafo.append(edad);
-        box_dashed.append(parrafo);
-        */
+
+        // var parrafo = document.createElement("p");
+        // parrafo.append(nombre);
+        // parrafo.append(apellidos);
+        // parrafo.append(edad);
+        // box_dashed.append(parrafo);
     });
 
 });

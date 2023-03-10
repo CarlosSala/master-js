@@ -1,24 +1,19 @@
 /* estilos generales */
+
 * {
-    /* para que ningun elemento html tenga margenes */
-    margin: 0px;
-    /* para que ninggun elemento html tenga padding 
-    a menos que se configuren mas abajo individualmente */
-    padding: 0px;
+  /* para que ningun elemento html tenga margenes y/o padding */
+  margin: 0px;
+  padding: 0px;
 }
 
-/* maquetacion de la cabecera */
+/* MAQUETACIÓN CABECERA */
 
 /* para evitar que el div flote */
 .clearfix {
-/* especifica si un elemento puede estar al lado
- de elementos flotantes que lo preceden 
- o si debe ser movido (cleared) debajo de ellos */
-    
- /* both, indica que el elemento es movido hacia 
+  /* both, indica que el elemento es movido hacia 
  abajo para limpiar tanto elementos flotantes de la
   izquierda como de la derecha */
- clear: both;
+  clear: both;
 }
 
 /* la imagen de fondo se va a buscar desde
@@ -29,299 +24,293 @@ body {
     background-attachment: fixed;
 } */
 
-/* ancho de un 65% de la pantalla 
-del recuadro principal de la pagina */
+/* recuadro principal del sitio ocupa un ancho de un 65% de la pantalla */
+
 #global {
-    /* ancho de un 65% de la pantalla */
-    width:65%;
-    /* tres propiedades para que crezca automaticamente */
-    clear: both;
-    overflow: hidden;
-    height: 1%;
-    /* recuadro principal centrado automaticamente */
-    margin: 0px auto;
-    /* margen superior fijo */
-    margin-top: 30px;
-    /* margen interior de los 4 lados, aunque 
-    añade algunos pixeles mas al width y al heigth */
-   padding: 25px;
-   /*  fondo blanco */ 
-    background: white;
-    /* sombras de la caja, los valores negativos
-    proyectan sombras a la izquierda */
-    box-shadow: 1px 1px grey;
+  width: 65%;
+  /* tres propiedades para que crezca automaticamente */
+  clear: both;
+  overflow: hidden;
+  height: 1%;
+  /* recuadro principal centrado automaticamente */
+  margin: 0px auto;
+
+  margin-top: 30px;
+  /* margen interior de los 4 lados (añade algunos pixeles mas al width y al heigth) */
+  padding: 25px;
+  background: white;
+  /* sombras de la caja, los valores negativos proyectan sombras a la izquierda */
+  box-shadow: 1px 1px grey;
 }
 
 /* el primer cuadro dentro de global */
+
 #logo {
-    /* estilo de la fuente, opcion uno y dos */
-    font-family: Verdana, Tahoma;
-    /* tamaño de la fuente */
-    font-size: 30px;
-    /* espacio entre letras */
-    letter-spacing: 4px;
-    /* ubicación vertical del texto en el div logo */
-    line-height:75px ;
-    /*
-    background:#235E3D; */
-    /* color de la fuente */
-    color:white;
-    /* texto centrado */
-    text-align: center;
-    /* ancho fijo del logo */
-    width:385px;
-    /* altura fija del logo */
-    height: 80px;
-    /* margen que empuja los elementos inferiores 
-    al logo la cantidad de pixeles indicados */
-    margin-bottom: 20px;
-    /* para que flote a la izquierda */
-    float: left;
+  /* estilo de la fuente, opcion uno y dos */
+  font-family: Verdana, Tahoma;
+  /* tamaño de la fuente */
+  font-size: 30px;
+  /* espacio entre letras */
+  letter-spacing: 4px;
+  /* ubicación vertical del texto en el div logo */
+  line-height: 75px;
+  /* color de la fuente */
+  color: white;
+  text-align: center;
+  width: 385px;
+  height: 80px;
+  margin-bottom: 20px;
 }
 
 /* maquetacion del menu */
 
 #menu {
-    font-family: Helvetica, Arial;
-    /* color de fondo para la lista */
-    background: #333;
-    /* width 100% para que ocupe todo el ancho 
-    del div que lo contiene */
-    width: 100%;
-    /* para convertir a mayusculas */
-    text-transform: uppercase;
-    /* margen que empuja los elementos inferiores 
-    a menu la cantidad de pixeles indicados */
-    margin-bottom: 50px;
+  font-family: Helvetica, Arial;
+  background: #333;
+  /* width 100% para que ocupe todo el ancho del div que lo contiene */
+  width: 100%;
+  /* para convertir a mayusculas */
+  text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
-/* aplicar estilos a todos los elementos ul
-al interior de menu */
+/* aplicar estilos a todos los elementos ul al interior de menu */
 #menu ul {
-    /* dimension del ul contenedor de la lista */
-    line-height: 46px;
-    /* para que no muestre los puntos de la lista */
-    list-style: none;
+  /* dimension del ul contenedor de la lista */
+  line-height: 45px;
+  /* para que no muestre los puntos de la lista */
+  list-style: none;
 }
 
 #menu ul li {
-    /* altura de la letra de los li */
-    height: 46px;
-    /* para poner los li uno al lado del otro */
-    display: inline-block;
-    /* para  que exista una transicion al momento
-    de hacer un over */
-    transition: all 400ms;
+  /* altura de la letra de los li */
+  height: 46px;
+  /* para poner los li uno al lado del otro */
+  display: inline-block;
+  /* para  que exista una transicion al momento  de hacer un over */
+  transition: all 400ms;
 }
 
- /* para cuando se realiza over sobre los elementos li 
+/* para cuando se realiza over sobre los elementos li 
 #menu ul li:hover {
     background: #235E3D;
 } */
 
 /* estilos a los elementos "a" o enlaces */
 #menu a {
-    color: white;
-    /* para evitar el subrayado por debajo */
-    text-decoration:none;
-     /* para establecer la separacion entre enlaces */
-    padding-left: 30px;
-     /* para establecer la separacion entre enlaces */
-    padding-right: 30px ;
+  color: white;
+  /* para evitar el subrayado por debajo */
+  text-decoration: none;
+  /* para establecer la separacion entre enlaces */
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* maquetacion de articulos */
 
 #posts {
-    width:60%;
-    float: left;
-    font-family: Helvetica, Arial; 
+  width: 60%;
+  float: left;
+  font-family: Helvetica, Arial;
 }
 
 .post {
-    padding:7px;
+  padding: 7px;
 }
 
- h2 {
-    font-size: 30px;
-    color: #333;
-    font-family: Helvetica, Arial; 
+h2 {
+  font-size: 30px;
+  color: #333;
+  font-family: Helvetica, Arial;
 }
 
 .post .date {
-    /* para que actue como si fuera un bloque */
-    display: block;
-    color:gray;
-    /* desplazamiento a partir del margen superior de este span */
-    margin-top:5px;
+  /* para que actue como si fuera un bloque */
+  display: block;
+  color: gray;
+  /* desplazamiento a partir del margen superior de este span */
+  margin-top: 5px;
 }
 
 .post p {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    /* para la separacion entre las lineas del parrafo */
-    line-height: 15px;
-    text-align: justify;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* para la separacion entre las lineas del parrafo */
+  line-height: 15px;
+  text-align: justify;
 }
 
-.button-more{
-    font-size: 14px;
-    text-align: center;
-    display: block;
-    padding: 15px;
-    /*background: #235E3D;*/
-    color: white;
-    text-decoration: none;
-    margin-top:10px;
-    width: 70px;
-    margin-bottom: 20px;
+.button-more {
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  padding: 15px;
+  /*background: #235E3D;*/
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+  width: 70px;
+  margin-bottom: 20px;
 }
+
+/* SIDEBAR */
 
 #sidebar {
-    font-family: Helvetica, Arial;
-    /* ocupa el restante porcentaje de la pantalla */
-    width: 31%;
-    float: right;
+  font-family: Helvetica, Arial;
+  /* ocupa el restante porcentaje de la pantalla */
+  width: 31%;
+  float: right;
 }
 
 #sidebar h4 {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: center;
-    line-height:10px;
-    color: #333;
-    background: url("../img/lines.png") repeat-x;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 10px;
+  color: #333;
+  background: url("../img/lines.png") repeat-x;
 }
 
-#sidebar span{
-    background: white;
-    padding: 5px;
+#sidebar span {
+  background: white;
+  padding: 5px;
 }
+
 #sidebar img {
-    width:100%;
+  width: 100%;
 }
 
-#sidebar p{
-    font-size: 15px;
-    text-align: justify;
+#sidebar p {
+  font-size: 15px;
+  text-align: justify;
 }
+
+/* FORMULARIO */
 
 form input[type="text"],
 form input[type="password"],
 form input[type="email"],
 form input[type="number"],
-form input[type="select"]{
-    padding:5px;
-    border-radius: 2px;
-    border:1px solid #ccc;
-    width: 80%;
-    margin-bottom: 10px;
-    margin-top: 5px;
+select {
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  width: 80%;
+  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
-form input[type="submit"]{
-    background: #eee;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+form input[type="submit"] {
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
+
+/* FOOTER */
 
 footer {
-    font-family: Helvetica, arial;
-    color: white;
-    height: 47px;
-    background: rgba(51, 51, 51, 0.70);
-    margin:0px auto;
-    width: 65%;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 50px;
-    line-height: 47px;
-}
-
-/* bxSlider */
-.bx-wrapper, .bx-viewport {
-    height: 250px !important;
-}
-
-#selector-theme {
-    position: fixed;
-    top: 40%;
-    background:rgba(51, 51, 51, 0.50);
-    width: 50px;
-    height: 100px;
-}
-#to-green,
- #to-red, 
- #to-blue{
-    width: 25px;
-    height: 25px;
-    border : 1px solid white;
-    margin: 0px auto;
-    display: block;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    cursor:pointer;
-}
-
-#to-green{
-    background:#235E3D; 
-}
-
-#to-red {
-    background:#CA3413; 
-}
-
-#to-blue {
-    background:#1F87C4;
+  font-family: Helvetica, arial;
+  color: white;
+  height: 47px;
+  background: rgba(51, 51, 51, 0.7);
+  margin: 0px auto;
+  width: 65%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 50px;
+  line-height: 47px;
 }
 
 .subir {
-    color:white;
-    text-decoration: none;
-    display:block;
-    float: right;
+  color: white;
+  text-decoration: none;
+  display: block;
+  float: right;
+}
+
+/* bxSlider */
+
+.bx-wrapper,
+.bx-viewport {
+  height: 250px !important;
+}
+
+/* TEMA */
+
+#selector-theme {
+  position: fixed;
+  top: 30%;
+  background: rgba(51, 51, 51, 0.5);
+  width: 50px;
+  height: 100px;
+}
+
+#to-green,
+#to-red,
+#to-blue {
+  width: 25px;
+  height: 25px;
+  border: 1px solid white;
+  margin: 0px auto;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+#to-green {
+  background: #235e3d;
+}
+
+#to-red {
+  background: #ca3413;
+}
+
+#to-blue {
+  background: #1f87c4;
 }
 
 #box {
-    width: 60%;
-    float: left;
-    margin-top:40px;
+  width: 60%;
+  float: left;
+  margin-top: 40px;
 }
 
 /* reloj.html */
+
 #reloj {
-    font-size: 40px;
-    /* engrosa mas la letra */
-    font-weight: bold;
-    font-family: Helvetica, arial ;
-    color: #333;
-    border: 5px dashed #333;
-    width : 30%;
-    padding: 30px;
-    margin: 0px auto;
+  font-size: 40px;
+  /* engrosa mas la letra */
+  font-weight: bold;
+  font-family: Helvetica, arial;
+  color: #333;
+  border: 5px dashed #333;
+  width: 30%;
+  padding: 30px;
+  margin: 0px auto;
 }
 
 /* contact.html */
-#form_contact{
-    width:  50%;
-    margin-top: 15px;
-    font-family: Helvetica, arial;
+
+#form_contact {
+  width: 50%;
+  margin-top: 15px;
+  font-family: Helvetica, arial;
 }
 
-#form_contact label{
-    /* para que realicen un salto de linea y actuen como bloque */
-    display: block;
-    width: 100%;
-    margin-top:5px;
+#form_contact label {
+  /* para que realicen un salto de linea y actuen como bloque */
+  display: block;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .form-error {
-    float: right;
-    font-size: 11px;
-    background: red;
-    color: white;
-    padding: 10px;
-    width: 65% ;
-
+  float: right;
+  font-size: 11px;
+  background: red;
+  color: white;
+  padding: 10px;
+  width: 65%;
 }

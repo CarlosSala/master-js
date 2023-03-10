@@ -10,11 +10,13 @@
 
 //window.location para obtener el objeto del url actual
 
-function getBom(){
-console.log(screen.height);
-console.log(screen.width);
-console.log(window.location.href);
+function getBom() {
+
+    console.log(screen.height);
+    console.log(screen.width);
+    console.log(window.location.href);
 }
+
 getBom();
 
 // se invoca la funcion redirect con el parametro url 
@@ -22,15 +24,16 @@ getBom();
 
 var url = "https://google.com";
 
-function redirect (url){
+function redirect(url) {
+
     window.location.href = url;
 }
 
 
-function abrirVentana (url){
+function abrirVentana(url) {
+
     // desde consola se le entrega una url
-    // "https://google.com" y la abre en una nueva pestaña
-    
-    window.open(url,"","width=400,height=300");
+
+    window.open(url, "", "width=400,height=300");
 }
 

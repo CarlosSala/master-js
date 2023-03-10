@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>
-            Aprendiendo JQuery
-        </title>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/02-eventos.js"></script>
-        <style>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Aprendiendo JQuery
+    </title>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/02-eventos.js"></script>
+    <style>
         #caja {
             width: 250px;
             height: 250px;
             border: solid black 2px;
             background: yellow;
         }
-/* all para que la transicion se cumpla al entrar
-y al salir 
+
+        /* all para que la transicion se cumpla al entrar y al salir */
+
         #caja:hover {
-            
-            transition: 300ms all;
-            background: red;
+            transition: 500ms all;
+            /* background: red; */
             cursor: pointer;
         }
-*/
 
-input { 
-    padding: 10px;
-    width: 250px;
-    font-size: 20px;
-}
-#datos {
-    border: 4px dashed black;
-    padding: 10px;
-    width: 250px;
-    height: 50px;
-    margin-top:10px;
-    display: none;
-}
-/* un div que se convierte en el mouse */
-#sigueme {
-    width:25px;
-    height: 25px;
-    position: absolute;
-    display: block;
-    background: yellow;
-    opacity: 0.5;
-    border:1px solid black;
-    border-radius: 100%;
-}
-        </style>     
+        input {
+            padding: 10px;
+            width: 250px;
+            font-size: 20px;
+        }
 
-    </head>
-    <body>
-        <h1>
-            Aprendiendo JQuery
-        </h1>
-        <div id="sigueme">
+        #datos {
+            border: 4px dashed black;
+            padding: 10px;
+            width: 250px;
+            height: 50px;
+            margin-top: 10px;
+            display: none;
+        }
 
-        </div>
-        <br>
-        <form action="">
-            <input type="text" id="nombre">
-        </form>
-        <div id="datos">
-            
-        </div>
-        <br>
-        <div id="caja">
-            Soy una caja
-        </div>
-    </body>
+        /* un div que se convierte en el mouse */
+        #sigueme {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            display: block;
+            background: yellow;
+            opacity: 0.5;
+            border: 1px solid black;
+            border-radius: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>
+        Aprendiendo JQuery
+    </h1>
+
+    <div id="sigueme">
+
+    </div>
+
+    <br>
+
+    <form action="">
+        <input type="text" id="nombre">
+    </form>
+
+    <div id="datos">
+
+    </div>
+
+    <br>
+
+    <div id="caja">
+        Soy una caja
+    </div>
+</body>
+
 </html>
