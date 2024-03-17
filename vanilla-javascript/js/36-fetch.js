@@ -14,6 +14,7 @@ var div_janet = document.querySelector("#janet");
 // esta funcion retorna informacion relacionada a un grupo de usuarios
 function getUsers() {
 
+    // fetch retorna un promesa de respuesta
     return fetch("https://reqres.in/api/users");
 }
 

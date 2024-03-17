@@ -57,7 +57,7 @@ console.log('Ejemplo de constantes:\n' + web + "\n" + ip);
 // resta:  -
 // division: /
 // multiplicacion: *
-// modulo
+// modulo: %
 // incremento: ++
 // decremento: --
 // acumulador: +=

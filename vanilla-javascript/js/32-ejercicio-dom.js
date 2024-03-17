@@ -36,14 +36,14 @@ window.addEventListener("load", function () {
 
             alert("El apellido no es válido");
 
-            return false;
+            return;
         }
 
         if (edad == null || edad <= 0 || isNaN(edad)) {
 
             alert("La edad no es válida");
 
-            return false;
+            return;
         }
 
         // se muestra en pantalla el div contenedor de los datos de usuario

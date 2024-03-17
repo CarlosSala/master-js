@@ -4,41 +4,6 @@ $(document).ready(function () {
     // se seleciona un div
     var caja = $('#caja');
 
-    // efectos para mostrar y ocultar
-
-    // El boton mostrar esta oculto por defecto
-    $('#mostrar').hide();
-
-    $('#mostrar').click(function () {
-
-        // si esta habilitado al hacer click este se oculta
-        $(this).hide();
-
-        // se muestra el otro boton
-        $('#ocultar').show();
-
-        // aplica un efecto sobre el div con id caja
-        // caja.show("fast");
-        caja.show("normal");
-        // caja.show("slow");
-
-        // la opacidad se mueve en un rando de 1 a 0
-        // uno se muestra y cero se oculta
-        caja.fadeTo('normal', 1);
-    });
-
-    // El boton ocultar se muestra por defecto
-    // al hacer click sobre el este se oculta
-    $('#ocultar').click(function () {
-        $(this).hide();
-        $('#mostrar').show();
-        caja.hide('fast');
-        caja.hide('normal');
-        caja.hide('slow');
-        caja.fadeTo('normal', 0.2)
-    });
-
-
     // solo un boton para mostrar y ocultar el div
     $('#todoEnUno').click(function () {
 
@@ -51,6 +16,40 @@ $(document).ready(function () {
             console.log("termina la animacion");
         });
     })
+
+    // efectos para mostrar y ocultar
+
+    // El boton ocultar se muestra por defecto
+    // al hacer click sobre el este se oculta
+    $('#ocultar').click(function () {
+
+        $(this).hide();
+        // se muestra el otro boton
+        $('#mostrar').show();
+        // aplica un efecto sobre el div con id caja
+       // caja.hide('slow');
+       // caja.slideToggle('slow');
+       // caja.hide('normal');
+        // caja.hide('slow');
+        caja.fadeTo('normal', 0.1)
+    });
+
+
+    // El boton mostrar esta oculto por defecto
+    $('#mostrar').hide();
+
+    $('#mostrar').click(function () {
+
+        // si esta habilitado al hacer click este se oculta
+        $(this).hide();
+        $('#ocultar').show();
+        caja.show("fast");
+        // caja.show("normal");
+        // caja.show("slow");
+        // la opacidad se mueve en un rando de 1 a 0
+        // uno se muestra y cero se oculta
+        caja.fadeTo('normal', 1);
+    });
 
     // animaciones personalizadas
     $('#animar').click(function () {

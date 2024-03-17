@@ -87,6 +87,7 @@ $(document).ready(function () {
     // otro ejemplo, desde el elemento con el id="elemento3" se comienza a retroceder 
     // saliendo del li y luego del ul hasta llegar al elemento del div
     // se mostraran todos los elementos encontrados en el camino que contengan la clase .resaltado
+    // en este caso un li (elemento 2) y un span (Span 1)
     var busqueda3 = $("#elemento3").parent().parent().find('.resaltado');
     console.log(busqueda3);
 });

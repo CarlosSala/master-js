@@ -1,7 +1,6 @@
 'use strict'
 
-// Javascript Object Notation
-// son una especie de array asociativo
+// Javascript Object Notation, es una especie de array asociativo
 
 // se crea un objeto json
 var pelicula =
@@ -22,7 +21,7 @@ var peliculas = [
     { titulo: "anaconda", year: 1996, pais: "USA" }
 ];
 
-// se obseva el arreglo por consola
+// se obseva el arreglo de objetos json
 console.log(peliculas);
 
 // se captura un elemento div donde mostrar informacion

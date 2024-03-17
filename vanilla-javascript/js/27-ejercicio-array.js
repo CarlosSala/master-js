@@ -46,7 +46,6 @@ mostrarArray(numeros.sort(function (a, b) {
 // mostrar arreglo invertido
 mostrarArray(numeros.reverse(), "Arreglo de orden invertido");
 
-
 // cantidad de elementos del array
 document.write("<h1> el arreglo tiene " + (numeros.length) + " elementos </h1>");
 
@@ -57,6 +56,7 @@ var posicion = numeros.findIndex(numero => numero == buscar);
 
 if (posicion != -1) {
 
-    document.write("<h1> el numero existe en la poscion " + posicion + "</h1>");
+    document.write("<h1> el numero " + buscar + " existe en la poscion " + posicion +
+     " en el ultimo arreglo </h1>");
 
 } else document.write("<h1> el numero no existe </h1>");

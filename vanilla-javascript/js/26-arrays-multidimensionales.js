@@ -39,6 +39,8 @@ console.log(cine[1][2]);
 // console.log(peliculas);
 
 
+console.log(peliculas);
+
 // indexOf entrega la posicion del elemnto
 var indice = peliculas.indexOf("spiderman");
 

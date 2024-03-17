@@ -43,8 +43,10 @@ console.log(objCoche1);
 class Autobus extends Coche {
 
     constructor(modelo, velocidad, color) {
+
         // se usa la palabra super para llamar al constructor de la clase padre
         super(modelo, velocidad, color);
+        
         this.altura = 5;
     }
 

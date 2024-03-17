@@ -24,6 +24,7 @@ window.addEventListener("load", () => {
     boton.addEventListener('click', function () {
 
         cambiarColor();
+        
         // this hace referencia al elemento en concreto sobre el cual se ha lanzado el evento
         console.log(this);
         this.style.border = "5px solid black";

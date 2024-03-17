@@ -7,6 +7,9 @@
 // se genera un arreglo con todos los div encontrados
 var todosLosDivs = document.getElementsByTagName("div");
 
+// console.log(todosLosDivs);
+console.log(todosLosDivs);
+
 // .textContent extrae el texto contenido en el elemento
 var contenidoEnTexto = todosLosDivs[2].textContent;
 
@@ -19,7 +22,7 @@ sextoDiv.innerHTML = "soy el sexto div, modificado ByTagName";
 sextoDiv.style.background = "yellow";
 
 
-// // CAPTURAR ELEMENTOS MEDIANTE SU ID
+// CAPTURAR ELEMENTOS MEDIANTE SU ID
 
 // var primerDiv = document.getElementById("div1");
 
@@ -39,11 +42,7 @@ primerDiv.className = "hola";
 
 
 // se replican los textos de los divs existentes, dentro del elemento html section
-
 var seccion = document.querySelector("#miSeccion");
-
-// se crea un elemento <hr>
-var hr = document.createElement("hr");
 
 // forEach solo sirve para recorrer arreglos creados por el usuario
 var valor;
@@ -55,16 +54,20 @@ for (valor in todosLosDivs) {
         // se crea un elemento html <p>
         var parrafo = document.createElement("p");
 
-        // se captura el texto de los divs existentes y se crea un node de texto 
+        // se captura el texto de los divs existentes 
         var texto = document.createTextNode(todosLosDivs[valor].textContent);
 
+        // se le pasa cada texto a cada parrafo
         parrafo.append(texto);
 
         // se pasa el elemento parrafo al elemento section
         seccion.append(parrafo);
     }
 }
-// se ubica el elemento hr al final de section
+
+// se crea un elemento <hr> y se ubica al final de la section
+var hr = document.createElement("hr");
+
 seccion.append(hr);
 
 
@@ -73,8 +76,6 @@ seccion.append(hr);
 var divRojos = document.getElementsByClassName("rojo");
 var divAzul = document.getElementsByClassName("azul");
 
-divRojos[0].style.background = "orange";
-
 // se recorre el arreglo de div's con class="rojo" y se les cambia el color de fondo
 var div;
 
@@ -82,7 +83,7 @@ for (div in divRojos) {
 
     if (divRojos[div].className == "rojo") {
 
-        divRojos[div].style.background = "red";
+        divRojos[div].style.background = "orange";
     }
 }
 

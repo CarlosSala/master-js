@@ -32,6 +32,12 @@ $(document).ready(function () {
         }
     });
 
+
+    $("#mostrar").click(function () {
+
+        $(".caja-efectos").toggle("puff", 500);
+    });
+
     // efectos 
     // toggle("explode");
     // toggle("fade");
@@ -44,10 +50,6 @@ $(document).ready(function () {
     // toggle("scale");
     // toggle("slide");
 
-    $("#mostrar").click(function () {
-
-        $(".caja-efectos").toggle("puff", 500);
-    });
 
     // tooltit, para mostrar el texto de los titles al pasar por los distintos elementos
     // realizar un tooltip para toda la pagina F
